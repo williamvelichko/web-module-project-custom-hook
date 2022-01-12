@@ -5,11 +5,15 @@ const useLocalStorage = (key, initValue) => {
     if (localStorage.getItem(key)) {
       return localStorage.getItem(key);
     } else {
-      localStorage.setItem(key(initValue));
+      localStorage.setItem(key, initValue);
       return initValue;
     }
   });
+  const SetStoredValue = (newValue) => {
+    localStorage.setItem(key, initValue);
+    setValue(newValue);
+  };
 
-  return [value];
+  return [value, SetStoredValue];
 };
 export default useLocalStorage;
